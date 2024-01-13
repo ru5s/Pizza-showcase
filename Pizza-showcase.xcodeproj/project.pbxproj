@@ -12,6 +12,16 @@
 		B568233C2B52571300A71C05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568233B2B52571300A71C05 /* MainViewController.swift */; };
 		B56823412B52571500A71C05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56823402B52571500A71C05 /* Assets.xcassets */; };
 		B56823442B52571500A71C05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56823422B52571500A71C05 /* LaunchScreen.storyboard */; };
+		B56823512B525B3D00A71C05 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56823502B525B3D00A71C05 /* BannerCollectionViewCell.swift */; };
+		B56823532B525B6300A71C05 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56823522B525B6300A71C05 /* CategoryCollectionViewCell.swift */; };
+		B56823552B525B9C00A71C05 /* PizzaCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56823542B525B9C00A71C05 /* PizzaCellCollectionViewCell.swift */; };
+		B56823582B525FE800A71C05 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56823572B525FE800A71C05 /* Banner.swift */; };
+		B568235A2B525FF100A71C05 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56823592B525FF100A71C05 /* Category.swift */; };
+		B568235C2B525FFD00A71C05 /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568235B2B525FFD00A71C05 /* Pizza.swift */; };
+		B568235F2B5260DA00A71C05 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B568235E2B5260DA00A71C05 /* Tabbar.swift */; };
+		B56823612B52B47A00A71C05 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56823602B52B47A00A71C05 /* MainModel.swift */; };
+		B56823632B52F5EF00A71C05 /* ExtensionMainScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56823622B52F5EF00A71C05 /* ExtensionMainScrollView.swift */; };
+		B56823662B53050D00A71C05 /* ExtensionMainCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56823652B53050D00A71C05 /* ExtensionMainCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +32,16 @@
 		B56823402B52571500A71C05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B56823432B52571500A71C05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B56823452B52571500A71C05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B56823502B525B3D00A71C05 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		B56823522B525B6300A71C05 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		B56823542B525B9C00A71C05 /* PizzaCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		B56823572B525FE800A71C05 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		B56823592B525FF100A71C05 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		B568235B2B525FFD00A71C05 /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
+		B568235E2B5260DA00A71C05 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
+		B56823602B52B47A00A71C05 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		B56823622B52F5EF00A71C05 /* ExtensionMainScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionMainScrollView.swift; sourceTree = "<group>"; };
+		B56823652B53050D00A71C05 /* ExtensionMainCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionMainCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +74,88 @@
 		B56823362B52571300A71C05 /* Pizza-showcase */ = {
 			isa = PBXGroup;
 			children = (
-				B56823372B52571300A71C05 /* AppDelegate.swift */,
-				B56823392B52571300A71C05 /* SceneDelegate.swift */,
-				B568233B2B52571300A71C05 /* MainViewController.swift */,
-				B56823402B52571500A71C05 /* Assets.xcassets */,
-				B56823422B52571500A71C05 /* LaunchScreen.storyboard */,
+				B568235D2B5260CE00A71C05 /* Tabbar */,
+				B568234F2B525AD200A71C05 /* System */,
+				B568234C2B525AAA00A71C05 /* Page */,
+				B568234B2B525A9000A71C05 /* Service */,
 				B56823452B52571500A71C05 /* Info.plist */,
 			);
 			path = "Pizza-showcase";
+			sourceTree = "<group>";
+		};
+		B568234B2B525A9000A71C05 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B568234C2B525AAA00A71C05 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				B568234D2B525ABC00A71C05 /* MainPage */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		B568234D2B525ABC00A71C05 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				B56823642B5304EC00A71C05 /* Extensions */,
+				B56823562B525FD700A71C05 /* Entity */,
+				B568234E2B525AC700A71C05 /* Components */,
+				B568233B2B52571300A71C05 /* MainViewController.swift */,
+				B56823602B52B47A00A71C05 /* MainModel.swift */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		B568234E2B525AC700A71C05 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B56823502B525B3D00A71C05 /* BannerCollectionViewCell.swift */,
+				B56823522B525B6300A71C05 /* CategoryCollectionViewCell.swift */,
+				B56823542B525B9C00A71C05 /* PizzaCellCollectionViewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B568234F2B525AD200A71C05 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				B56823392B52571300A71C05 /* SceneDelegate.swift */,
+				B56823372B52571300A71C05 /* AppDelegate.swift */,
+				B56823402B52571500A71C05 /* Assets.xcassets */,
+				B56823422B52571500A71C05 /* LaunchScreen.storyboard */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		B56823562B525FD700A71C05 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B56823572B525FE800A71C05 /* Banner.swift */,
+				B56823592B525FF100A71C05 /* Category.swift */,
+				B568235B2B525FFD00A71C05 /* Pizza.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		B568235D2B5260CE00A71C05 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				B568235E2B5260DA00A71C05 /* Tabbar.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		B56823642B5304EC00A71C05 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B56823622B52F5EF00A71C05 /* ExtensionMainScrollView.swift */,
+				B56823652B53050D00A71C05 /* ExtensionMainCollection.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +229,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B568233C2B52571300A71C05 /* MainViewController.swift in Sources */,
+				B568235F2B5260DA00A71C05 /* Tabbar.swift in Sources */,
+				B56823632B52F5EF00A71C05 /* ExtensionMainScrollView.swift in Sources */,
+				B56823532B525B6300A71C05 /* CategoryCollectionViewCell.swift in Sources */,
+				B568235C2B525FFD00A71C05 /* Pizza.swift in Sources */,
 				B56823382B52571300A71C05 /* AppDelegate.swift in Sources */,
+				B56823512B525B3D00A71C05 /* BannerCollectionViewCell.swift in Sources */,
+				B56823612B52B47A00A71C05 /* MainModel.swift in Sources */,
+				B56823582B525FE800A71C05 /* Banner.swift in Sources */,
 				B568233A2B52571300A71C05 /* SceneDelegate.swift in Sources */,
+				B56823662B53050D00A71C05 /* ExtensionMainCollection.swift in Sources */,
+				B56823552B525B9C00A71C05 /* PizzaCellCollectionViewCell.swift in Sources */,
+				B568235A2B525FF100A71C05 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
