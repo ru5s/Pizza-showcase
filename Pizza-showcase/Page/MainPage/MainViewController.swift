@@ -79,9 +79,11 @@ class MainViewController: UIViewController {
         cv.backgroundColor = .white
         return cv
     }()
+    
     var categorySelectedIndexPath: IndexPath?
-    var pizzasSelectedCategoryIndexPath: IndexPath?
     var previosCategoryIndex: IndexPath?
+    
+    var pizzasSelectedCategoryIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,9 +91,7 @@ class MainViewController: UIViewController {
         delegate = MainModel()
         view.backgroundColor = UIColor(named: "BackgroundColor")
         addSubviews()
-        bannerCollectionView.reloadData()
-        categoryCollectionView.reloadData()
-        pizzasCollectionView.reloadData()
+        getData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -123,7 +123,6 @@ class MainViewController: UIViewController {
         bannerCollectionView.delegate = self
         bannerCollectionView.dataSource = self
         bannerCollectionView.clipsToBounds = false
-        firstCellBanner()
         constraintToHideBanner =  bannerCollectionView.heightAnchor.constraint(equalToConstant: 120)
         constraintToHideBanner?.isActive = true
         view.addSubview(categoryCollectionView)
@@ -138,8 +137,20 @@ class MainViewController: UIViewController {
         pizzasSelectedCategoryIndexPath = IndexPath(item: 0, section: 0)
     }
     
-    func firstCellBanner(){
-        if !(delegate?.banners.isEmpty ?? true) {
+    func getData(){
+        delegate?.getPizzasFromApi(competion: { pizzas in
+            self.delegate?.pizzas = pizzas
+            self.pizzasCollectionView.reloadData()
+        })
+        delegate?.getBanners(competion: { banners in
+            self.delegate?.banners = banners
+            self.firstCellBanner()
+            self.bannerCollectionView.reloadData()
+        })
+    }
+    
+    private func firstCellBanner(){
+        if delegate?.banners.count ?? 0 > 1 {
             delegate?.banners[0].opacity = 1.0
         }
     }

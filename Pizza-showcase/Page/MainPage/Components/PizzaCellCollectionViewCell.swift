@@ -8,7 +8,8 @@
 import UIKit
 
 class PizzaCellCollectionViewCell: UICollectionViewCell {
-    let image: UIImageView = {
+    var delegate: MainModelImageProtocol?
+    var image: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
@@ -52,11 +53,23 @@ class PizzaCellCollectionViewCell: UICollectionViewCell {
         view.backgroundColor = UIColor(named: "BackgroundColor")
         return view
     }()
+    var imageCache = NSCache <NSString, UIImage>()
+    var fireStore: FirestoreImageDataSend?
         var date: Pizza? {
             didSet {
+                fireStore = FirebaseManager() 
                 guard let unwrData = date else {return}
-                image.image = UIImage(named: unwrData.image)
-                namePizza.text = unwrData.nameOfPizza + " " + unwrData.category
+                DispatchQueue.main.async {
+                    if let cachedImage = self.imageCache.object(forKey: unwrData.image as NSString) {
+                        self.image.image = cachedImage
+                    } else {
+                        self.fireStore?.getImage(picName: unwrData.image, imageType: .pizzas ) { [self] image in
+                            self.image.image = image
+                            imageCache.setObject(image, forKey: unwrData.image as NSString)
+                        }
+                    }
+                }
+                namePizza.text = unwrData.nameOfPizza
                 descriptionPizza.text = unwrData.description
                 price.text = unwrData.price
             }
@@ -64,6 +77,7 @@ class PizzaCellCollectionViewCell: UICollectionViewCell {
         
         override init(frame: CGRect) {
             super.init(frame: frame)
+            
             contentView.addSubview(image)
             contentView.addSubview(namePizza)
             contentView.addSubview(descriptionPizza)
@@ -75,6 +89,7 @@ class PizzaCellCollectionViewCell: UICollectionViewCell {
                 image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                 image.topAnchor.constraint(equalTo: contentView.topAnchor),
                 image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                image.widthAnchor.constraint(equalToConstant: 130),
                 namePizza.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
                 namePizza.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
                 namePizza.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),

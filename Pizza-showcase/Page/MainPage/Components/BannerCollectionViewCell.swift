@@ -13,19 +13,34 @@ class BannerCollectionViewCell: UICollectionViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
-        image.backgroundColor = .red.withAlphaComponent(0.5)
         return image
     }()
+    var imageCache = NSCache <NSString, UIImage>()
+    var fireStore: FirestoreImageDataSend?
     var date: Banner? {
         didSet {
+            
             guard let unwrData = date else {return}
-            image.image = UIImage(named: unwrData.image)
-            image.layer.opacity = unwrData.opacity
+            
+            if let cachedImage = self.imageCache.object(forKey: unwrData.image as NSString) {
+                DispatchQueue.main.async {
+                    self.image.image = cachedImage
+                }
+            } else {
+                self.fireStore?.getImage(picName: unwrData.image, imageType: .banners ) { [self] image in
+                    self.imageCache.setObject(image, forKey: unwrData.image as NSString)
+                    DispatchQueue.main.async {
+                        self.image.image = image
+                    }
+                }
+            }
+            self.image.layer.opacity = unwrData.opacity
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        fireStore = FirebaseManager()
         contentView.addSubview(image)
         image.layer.cornerRadius = 10
         NSLayoutConstraint.activate([

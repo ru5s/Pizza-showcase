@@ -8,6 +8,7 @@
 import Foundation
 
 struct Banner {
+    var id: Int
     var image: String
     var opacity: Float = 0.5
 }

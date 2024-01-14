@@ -26,9 +26,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCollectionViewCell", for: indexPath) as? BannerCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            UIView.transition(with: collectionView, duration: 0.3, options: .allowAnimatedContent, animations: {
-                cell.date = self.delegate?.banners[indexPath.item]
-            }, completion: nil)
+            cell.date = self.delegate?.banners[indexPath.item]
             return cell
         }
         if collectionView == categoryCollectionView {
@@ -50,9 +48,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PizzaCellCollectionViewCell", for: indexPath) as? PizzaCellCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            UIView.transition(with: collectionView, duration: 0.3, options: .allowAnimatedContent, animations: {
                 cell.date = self.delegate?.pizzas[indexPath.item]
-            }, completion: nil)
             return cell
         }
         return UICollectionViewCell()

@@ -13,4 +13,5 @@ struct Pizza {
     let description: String
     let price: String
     let category: String
+    var index: Int = 0
 }
